@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes website fit user screen -->
+    <meta name="description" content="Placeholder"> <!-- Description of a page when searching it online -->
+    <meta name="keywords" content="Placeholder"> <!-- Specifies keywords (comma separated w/ no spaces) to help SEO catalogue the page -->
+    <meta name="author" content="Placeholder"> <!-- Name of the author of the page -->
+    <title>Brady/Garze Home Page</title> <!-- Name of the tab in a browser -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        /* -----NAVIGATION BAR STYLING----- */
+        nav {
+            position: fixed; /* Keep the navbar fixed at the top */
+            width: 100%; /* Make the navbar span the full width */
+            top: 0; /* Align it to the top */
+            overflow: hidden;
+        }
+        .navbar {
+            background-color: #ffffff;
+            height: 10vh;
+            top: 0;
+            
+            display: flex; /* Use flexbox to distribute items evenly */
+            list-style-type: none; /* Remove the bullet points from the list */
+            justify-content: space-around; /* Distribute items evenly with space around them */
+            align-items: center; /* Align items vertically */
+        }
+        .navbar header { /* Company Name */
+            font-size: 1.6em;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            margin-right: 12vw; /* Distance the company name from navigation button */
+            margin-left: 8vw;
+            cursor: default;
+        }
+        .navbar li {
+            flex: 1; /* Ensure each list item takes up equal space */
+            text-align: center;
+        }
+        .navbar button {
+            display: block;
+            background-color: inherit;
+            color: rgb(147, 147, 147);
+            text-align: center;
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .navbar button:hover {
+            background-color: #b5b4b4;
+            /* color: rgb(0, 0, 0); */
+            /* text-decoration: underline; */
+        }
+        /* -----NAVIGATION BAR STYLING----- */
+
+
+        #content1 {
+            height: 80vh;
+            background-color: lightgray;
+
+            /* margin-top:5vh;
+            margin-bottom:5vh; */
+        }
+
+        #content2 {
+            height: 65vh;
+            background-color: #d6d6d6b5;
+
+            /* margin-top:5vh;
+            margin-bottom:5vh; */
+        }
+
+        #content3 {
+            height: 75vh;
+            background-color: gray;
+
+            /* margin-top:5vh;
+            margin-bottom:5vh; */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav>
+        <ul class="navbar">
+            <li><header onclick="scrollToTop()">Company/Website Name or Logo</header></li>
+            <li><button onclick="scrollToContent('content1')">Sourcer</button></li>
+            <li><button onclick="scrollToContent('content2')">Supplier</button></li>
+            <li><button onclick="scrollToContent('content3')">Contact Us</button></li>
+            <li><button onclick="scrollToContent('content6')">Log In</button></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content-wrapper">
+
+        <!-- CONTENT 1 -->
+        <div id="content1">
+            <p>Placeholder</p>
+        </div>
+
+        <!-- CONTENT 2 -->
+        <div id="content2">
+            <p>Placeholder</p>
+        </div>
+
+        <!-- CONTENT 3 -->
+        <div id="content3">
+            <p>Placeholder</p>
+        </div>
+        
+    </div>
+
+    <script>
+        function scrollToContent(contentId) {
+            var contentElement = document.getElementById(contentId);
+            if (contentElement) { contentElement.scrollIntoView({ behavior: 'smooth' }); }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
