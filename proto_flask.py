@@ -18,16 +18,20 @@ def render_homepage():
 def render_login():
   return render_template("login_page.html")
 
+# register a path for the GET method for forgot_password
+@app.get("/forgot-password")
+def render_forgot_pass():
+  return "<p>Forgot Password!</p>"
+
+
+
+
+
+
 # register a path for the POST method
 @app.post("/code")
 def code():
   return "<p>Thanks for sending us your code</p>"
-
-
-
-
-
-
 
 # register a path with wildcards; argument must match angle-bracketed part of path
 @app.get("/welcome/<user>/<greeting>")
@@ -40,6 +44,7 @@ def echo():
   from flask import request
   return f'''<p>You used method {request.method}</p>
 <p>You send the following form data: {request.form}</p>'''
+
 
 
 
