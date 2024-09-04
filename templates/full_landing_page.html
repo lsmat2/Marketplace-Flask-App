@@ -32,11 +32,11 @@
             justify-content: space-around; /* Distribute items evenly with space around them */
             align-items: center; /* Align items vertically */
         }
-        .navbar header { /* Company Name */
-            font-size: 1.6em;
+        .navbar h1 { /* Company Name */
+            font-size: 1em;
             font-family:Verdana, Geneva, Tahoma, sans-serif;
-            margin-right: 12vw; /* Distance the company name from navigation button */
-            margin-left: 8vw;
+            /* Distance the company name from navigation button */
+            padding-right: 3vw; 
             cursor: default;
         }
         .navbar li {
@@ -60,29 +60,35 @@
         }
         /* -----NAVIGATION BAR STYLING----- */
 
+        .background-photo {
+            box-sizing: border-box;
+            width: 100%;
+            
+        }
 
-        #content1 {
+        .content {
+            display: flex;
+            justify-content: center;
+            padding-top:15vh;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 2em;
+        }
+
+        #manufacturers {
             height: 80vh;
             background-color: lightgray;
-
-            /* margin-top:5vh;
-            margin-bottom:5vh; */
         }
 
-        #content2 {
+        #suppliers {
             height: 65vh;
             background-color: #d6d6d6b5;
-
             /* margin-top:5vh;
             margin-bottom:5vh; */
         }
 
-        #content3 {
+        #contact {
             height: 75vh;
             background-color: gray;
-
-            /* margin-top:5vh;
-            margin-bottom:5vh; */
         }
     </style>
 </head>
@@ -91,32 +97,35 @@
     <!-- NAV BAR -->
     <nav>
         <ul class="navbar">
-            <li><header onclick="scrollToTop()">Company/Website Name or Logo</header></li>
-            <li><button onclick="scrollToContent('content1')">Sourcer</button></li>
-            <li><button onclick="scrollToContent('content2')">Supplier</button></li>
-            <li><button onclick="scrollToContent('content3')">Contact Us</button></li>
-            <li><button onclick="scrollToContent('content6')">
+            <li><h1 onclick="scrollToTop()">Company/Website Name or Logo</h1></li>
+            <li><button onclick="scrollToContent('manufacturers')">Manufacturers</button></li>
+            <li><button onclick="scrollToContent('suppliers')">Suppliers</button></li>
+            <li><button onclick="scrollToContent('contact')">Contact Us</button></li>
+            <li><button>
                 <a href="/login">Log In</a>
             </button></li>
         </ul>
     </nav>
 
+    <!-- STOCK IMAGE -->
+    <img src="../images/materials.jpg" alt="Materials Image" class="background-photo">
+
     <!-- CONTENT -->
     <div class="content-wrapper">
 
         <!-- CONTENT 1 -->
-        <div id="content1">
-            <p>Placeholder</p>
+        <div class="content" id="manufacturers">
+            <p>Manufacturers</p>
         </div>
 
         <!-- CONTENT 2 -->
-        <div id="content2">
-            <p>Placeholder</p>
+        <div class="content" id="suppliers">
+            <p>Suppliers</p>
         </div>
 
         <!-- CONTENT 3 -->
-        <div id="content3">
-            <p>Placeholder</p>
+        <div class="content" id="contact">
+            <p>Contact Us</p>
         </div>
         
     </div>
