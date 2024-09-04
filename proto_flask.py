@@ -16,7 +16,7 @@ def render_homepage():
 # note: the paths are exact; /login/ and /LOGIN do not match this
 @app.get("/login")
 def render_login():
-  return render_template("full_landing_page.html")
+  return render_template("login_page.html")
 
 # register a path for the POST method
 @app.post("/code")
