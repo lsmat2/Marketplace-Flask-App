@@ -1,10 +1,13 @@
 # Terminal Run Command: python3 <path to proto_flask.py>
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 # at this point, app is ready to respond to all requests with a 404 error
 # we will register paths with other responses below.
 
+
+# Each post is a dict with values for the form fields
+posts = []
 
 
 # register a path for the default method (GET)
@@ -23,7 +26,37 @@ def render_login():
 def render_forgot_pass():
   return "<p>Forgot Password!</p>"
 
+@app.route("/marketplace", methods=['GET'])
+def render_marketplace():
+  return render_template("marketplace.html")
 
+@app.route('/marketplace', methods=['POST'])
+def post_to_marketplace():
+
+    # Get fields from the form
+    title = request.form['title']
+    usage = request.form['usage']
+    minquan = request.form['minquan']
+    material = request.form['material']
+    certifications = request.form['certifications']
+    time = request.form['time']
+    
+
+    # TODO: Include 'other notes'
+    # Store posts as json dict w/ specific keys
+    if title and usage and minquan and material and certifications and time:
+        post = {
+            'title': title,
+            'usage': usage,
+            'minquan': minquan,
+            'material': material,
+            'certifications': certifications,
+            'time': time
+        }
+        posts.append(post)
+
+    # Pass the posts to the template
+    return render_template('marketplace.html', posts=posts)
 
 
 

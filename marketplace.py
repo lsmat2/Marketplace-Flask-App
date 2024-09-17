@@ -7,11 +7,11 @@ posts = []
 
 
 @app.route("/", methods=['GET'])
-def render_homepage():
+def render_marketplace():
   return render_template("marketplace.html")
 
 @app.route('/', methods=['POST'])
-def index():
+def post_to_marketplace():
 
     # Get fields from the form
     title = request.form['title']
