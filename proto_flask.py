@@ -62,16 +62,6 @@ def post_to_marketplace():
 
 
 
-# register a path for the POST method
-@app.post("/code")
-def code():
-  return "<p>Thanks for sending us your code</p>"
-
-# register a path with wildcards; argument must match angle-bracketed part of path
-@app.get("/welcome/<user>/<greeting>")
-def get_welcome(user, greeting):
-  return "<p>Hello, "+user+", thanks for telling us "+repr(greeting)+"!</p>"
-
 # register several methods to the same function with a request body
 @app.route("/echo", methods=["GET","POST"])
 def echo():
