@@ -4,7 +4,12 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Storage for marketplace posts
-posts = []
+# posts = []
+
+# Sample posts for testing
+posts = [{"certifications":"None","material":"None","minquan":"100","time":"None","title":"Wood","usage":"100"},
+         {"certifications":"None","material":"None","minquan":"300","time":"None","title":"Screws","usage":"200"},
+         {"certifications":"None","material":"None","minquan":"500","time":"None","title":"Steel","usage":"500"}]
 
 
 ### LANDING PAGE ROUTE ###
@@ -19,9 +24,9 @@ def render_homepage():
 def render_login():
   return render_template("login_page.html")
 
-@app.get("/forgot-password")
+@app.get("/posts")
 def render_forgot_pass():
-  return "<p>Forgot Password!</p>"
+  return posts
 
 
 ### MARKETPLACE ROUTES ###

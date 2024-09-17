@@ -51,6 +51,7 @@
 <body>
 
     <button class="signin" type="button" onclick="window.location.href='/'">Home Page</button>
+    <button class="signin" type="button" onclick="window.location.href='/marketplace-post'">Marketplace Posting Page</button>
 
     <h1>Marketplace</h1>
 
@@ -59,10 +60,55 @@
         <h2>Submitted Posts</h2>
         <ul>
             {% for post in posts %}
-            <li class="post-item">{{ post }}</li>
+            <li class="post-item">
+                <div class="post-title"><strong>Title:</strong> {{ post.title }}</div>
+                <div class="post-material"><strong>Material:</strong> {{ post.material }}</div>
+                <div class="post-usage"><strong>Usage:</strong> {{ post.usage }}</div>
+                <div class="post-minquan"><strong>Minimum Quantity:</strong> {{ post.minquan }}</div>
+                <div class="post-certifications"><strong>Certifications:</strong> {{ post.certifications }}</div>
+                <div class="post-time"><strong>Time:</strong> {{ post.time }}</div>
+            </li>
             {% endfor %}
         </ul>
     </div>
     {% endif %}
+
+    <style>
+        .post-item {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .post-item div {
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .post-description {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .post-price {
+            font-size: 1em;
+            color: #28a745;
+        }
+
+        .post-date {
+            font-size: 0.9em;
+            color: #999;
+        }
+    </style>
+
 </body>
 </html>
