@@ -1,11 +1,8 @@
-# Terminal Run Command: python <path to this file>
-
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Storage for marketplace posts
 # posts = []
-
 # Sample posts for testing
 posts = [{"certifications":"None","material":"None","minquan":"100","time":"None","title":"Wood","usage":"100"},
          {"certifications":"None","material":"None","minquan":"300","time":"None","title":"Screws","usage":"200"},
@@ -41,7 +38,6 @@ def render_marketplace_post():
 
 @app.route('/marketplace-post', methods=['POST'])
 def post_to_marketplace():
-    
     # Get fields from the form
     title = request.form['title']
     usage = request.form['usage']
@@ -49,7 +45,6 @@ def post_to_marketplace():
     material = request.form['material']
     certifications = request.form['certifications']
     time = request.form['time']
-    
     # TODO: Include 'other notes'
     if title and usage and minquan and material and certifications and time:
         post = {
@@ -61,26 +56,9 @@ def post_to_marketplace():
             'time': time
         }
         posts.append(post)
-
     return render_template("marketplace-post.html")
 
 
-
-
-# register several methods to the same function with a request body
-@app.route("/echo", methods=["GET","POST"])
-def echo():
-  from flask import request
-  return f'''<p>You used method {request.method}</p>
-<p>You send the following form data: {request.form}</p>'''
-
-
-
-
-
-
-# run it either with the command line invocation
-#    python3 -m flask --app [name of file.py] run
-# or by adding code to this file as follows:
+### RUN THE APP ###
 if __name__ == '__main__':
   app.run()
