@@ -1,38 +1,42 @@
-# Terminal Run Command: python3 <path to proto_flask.py>
+# Terminal Run Command: python <path to this file>
 
 from flask import Flask, render_template, request
 app = Flask(__name__)
-# at this point, app is ready to respond to all requests with a 404 error
-# we will register paths with other responses below.
 
-
-# Each post is a dict with values for the form fields
+# Storage for marketplace posts
 posts = []
 
 
-# register a path for the default method (GET)
+### LANDING PAGE ROUTE ###
 @app.route("/")
 def render_homepage():
   return render_template("full_landing_page.html")
 
-# register a path for the GET method
-# note: the paths are exact; /login/ and /LOGIN do not match this
+
+### LOGIN ROUTES ###
+
 @app.get("/login")
 def render_login():
   return render_template("login_page.html")
 
-# register a path for the GET method for forgot_password
 @app.get("/forgot-password")
 def render_forgot_pass():
   return "<p>Forgot Password!</p>"
 
-@app.route("/marketplace", methods=['GET'])
-def render_marketplace():
-  return render_template("marketplace.html")
 
-@app.route('/marketplace', methods=['POST'])
+### MARKETPLACE ROUTES ###
+
+@app.route("/marketplace-view", methods=['GET'])
+def render_marketplace_view():
+  return render_template("marketplace-view.html", posts=posts)
+
+@app.route('/marketplace-post', methods=['GET'])
+def render_marketplace_post():
+  return render_template("marketplace-post.html")
+
+@app.route('/marketplace-post', methods=['POST'])
 def post_to_marketplace():
-
+    
     # Get fields from the form
     title = request.form['title']
     usage = request.form['usage']
@@ -41,9 +45,7 @@ def post_to_marketplace():
     certifications = request.form['certifications']
     time = request.form['time']
     
-
     # TODO: Include 'other notes'
-    # Store posts as json dict w/ specific keys
     if title and usage and minquan and material and certifications and time:
         post = {
             'title': title,
@@ -55,8 +57,7 @@ def post_to_marketplace():
         }
         posts.append(post)
 
-    # Pass the posts to the template
-    return render_template('marketplace.html', posts=posts)
+    return render_template("marketplace-post.html")
 
 
 

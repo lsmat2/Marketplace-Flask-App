@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Marketplace Post</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #inputText {
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #posts {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        .post-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            list-style: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Marketplace</h1>
+
+    <form method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter post title" required><br><br>
+
+        <label for="usage">Annual Usage (int):</label>
+        <textarea id="usage" name="usage" rows="2" placeholder="Enter annual usage" required></textarea><br><br>
+        
+        <label for="minquan">Requested Minimum Order Quantity (int):</label>
+        <textarea id="minquan" name="minquan" rows="2" placeholder="Enter minimum order quantity" required></textarea><br><br>
+        
+        <label for="material">Material Preferences (list[str]):</label>
+        <textarea id="material" name="material" rows="2" placeholder="Enter material preferences" required></textarea><br><br>
+        
+        <label for="certifications">Certifications needed (list[str]):</label>
+        <textarea id="certifications" name="certifications" rows="2" placeholder="Enter certifications" required></textarea><br><br>
+        
+        <label for="time">Lead Time Requirements:</label>
+        <textarea id="time" name="time" rows="2" placeholder="Enter time requirements" required></textarea><br><br>
+        
+        <label for="notes">Other Notes</label>
+        <textarea id="notes" name="notes" rows="2" placeholder="Other Notes"></textarea><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
