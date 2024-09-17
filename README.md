@@ -19,13 +19,7 @@ This is a simple marketplace application built using Flask, a lightweight WSGI w
     cd Marketplace-Flask-App
     ```
 
-2. Create a virtual environment and activate it:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-
-3. Install the required dependencies:
+2. Install the required dependencies:
     ```bash
     pip install -r requirements.txt
     ```
@@ -35,6 +29,10 @@ This is a simple marketplace application built using Flask, a lightweight WSGI w
 1. Run the Flask development server:
     ```bash
     python proto-flask.py
+    ```
+    or if using python3:
+    ```bash
+    python3 proto-flask.py
     ```
 
 2. Open your web browser and go to `http://127.0.0.1:5000`.
