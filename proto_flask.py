@@ -8,6 +8,8 @@ posts = [{"certifications":"None","material":"None","minquan":"100","time":"None
          {"certifications":"None","material":"None","minquan":"300","time":"None","title":"Screws","usage":"200"},
          {"certifications":"None","material":"None","minquan":"500","time":"None","title":"Steel","usage":"500"}]
 
+login_info = {}
+
 
 ### LANDING PAGE ROUTE ###
 @app.route("/")
@@ -19,6 +21,18 @@ def render_homepage():
 
 @app.get("/login")
 def render_login():
+  return render_template("login_page.html")
+
+@app.get("/signup", methods=['GET'])
+def render_signup():
+  return render_template("signup_page.html")
+
+@app.get("/signup", methods=['POST'])
+def render_signup():
+  # Get fields from the form
+  username = request.form['username']
+  password = request.form['password']
+  login_info[username] = password
   return render_template("login_page.html")
 
 @app.get("/posts")

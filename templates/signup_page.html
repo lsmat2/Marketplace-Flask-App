@@ -8,8 +8,8 @@
     <meta name="description" content="Placeholder"> <!-- Description of a page when searching it online -->
     <meta name="keywords" content="Placeholder"> <!-- Specifies keywords (comma separated w/ no spaces) to help SEO catalogue the page -->
     <meta name="author" content="Placeholder"> <!-- Name of the author of the page -->
-    <title>Login Page</title> <!-- Name of the tab in a browser -->
-	<link rel="stylesheet" type="text/css" href="../static/styles/login_page.css"> <!-- Link to external CSS file -->
+    <title>Signup Page</title> <!-- Name of the tab in a browser -->
+	<link rel="stylesheet" type="text/css" href="../static/styles/signup_page.css"> <!-- Link to external CSS file -->
 
 </head>
 
@@ -18,35 +18,19 @@
 
 	<div class="content-wrapper">
 
-		<button class="signin" type="button" onclick="window.location.href='/'">Home Page</button>
+		<button class="signin" type="button" onclick="window.location.href='/login'">Login Page</button>
 
-		<h1 class="login_title">Have an account?</h3>
+		<h1 class="signup">Sign Up Here</h3>
 
 		<form>
 			<div class="username">
 				<input type="text" placeholder="Username" required>
 			</div>
-
 			<div class="password">
 				<input type="password" placeholder="Password" required>
 			</div>
-
 			<div>
 				<button class="signin" type="button" onclick="window.location.href='/signup'">Sign Up</button>
-				<button class="signin" type="button" onclick="window.location.href='/marketplace-view'">Marketplace View</button>
-				<button class="signin" type="button" onclick="window.location.href='/marketplace-post'">Marketplace Post</button>
-			</div>
-
-			<div class="additional_options">
-				<label>
-					Remember Me
-					<input type="checkbox" unchecked>
-					<span class="checkmark"></span>
-				</label>
-			</div>
-			
-			<div class="additional_options">
-				<a href="forgot-password" style="color: #2002ff">Forgot Password</a>
 			</div>
 
 		</form>
