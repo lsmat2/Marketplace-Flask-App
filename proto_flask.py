@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 # Storage for marketplace posts
@@ -23,17 +23,21 @@ def render_homepage():
 def render_login():
   return render_template("login_page.html")
 
-@app.get("/signup", methods=['GET'])
+@app.route("/signup", methods=['GET'])
 def render_signup():
   return render_template("signup_page.html")
 
-@app.get("/signup", methods=['POST'])
-def render_signup():
+@app.route("/signup", methods=['POST'])
+def post_signup():
   # Get fields from the form
   username = request.form['username']
   password = request.form['password']
   login_info[username] = password
-  return render_template("login_page.html")
+  return redirect("/login")
+
+@app.get("/login-info")
+def get_login_info():
+  return login_info
 
 @app.get("/posts")
 def render_forgot_pass():
