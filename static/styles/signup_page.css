@@ -31,7 +31,6 @@
     display: flex;
     justify-content: center;
     margin-top: 2vh;
-
     width: 20%;
     margin-left: 40%;
     background-color: rgba(255, 255, 255, 0.172);
@@ -42,7 +41,6 @@
     display: flex;
     justify-content: center;
     margin-top: 5px;
-
     width: 20%;
     margin-left: 40%;
     background-color: rgba(255, 255, 255, 0.172);
@@ -61,6 +59,15 @@
 }
 .signin:hover {
     opacity: 0.8;
+}
+
+.corner_button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
 }
 
 
