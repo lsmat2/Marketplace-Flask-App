@@ -22,34 +22,39 @@
 
 		<h1 class="login_title">Have an account?</h3>
 
-		<form>
+
+			<!-- USER/PASS -->
+		<form method="POST">
 			<div class="username">
-				<input type="text" placeholder="Username" required>
+				<input type="text" id="username" name="username" placeholder="Username" required>
 			</div>
 
-			<div class="password">
-				<input type="password" placeholder="Password" required>
+			<div class="password"> 
+				<input type="password" id="password" name="password" placeholder="Password" required> 
 			</div>
 
-			<div>
-				<button class="signin" type="button" onclick="window.location.href='/signup'">Sign Up</button>
-				<button class="signin" type="button" onclick="window.location.href='/marketplace-view'">Marketplace View</button>
-				<button class="signin" type="button" onclick="window.location.href='/marketplace-post'">Marketplace Post</button>
-			</div>
-
-			<div class="additional_options">
-				<label>
-					Remember Me
-					<input type="checkbox" unchecked>
-					<span class="checkmark"></span>
-				</label>
-			</div>
-			
-			<div class="additional_options">
-				<a href="forgot-password" style="color: #2002ff">Forgot Password</a>
-			</div>
-
+			<button class="signin" type="submit">Log In</button>
 		</form>
+
+		<!-- EXTRA OPTIONS -->
+		<div>
+			<button class="signin" type="button" onclick="window.location.href='/signup'">Sign Up</button>
+			<button class="signin" type="button" onclick="window.location.href='/marketplace-view'">Marketplace View</button>
+			<button class="signin" type="button" onclick="window.location.href='/marketplace-post'">Marketplace Post</button>
+		</div>
+
+		<div class="additional_options">
+			<label>
+				Remember Me
+				<input type="checkbox" unchecked>
+				<span class="checkmark"></span>
+			</label>
+		</div>
+		
+		<div class="additional_options">
+			<a href="forgot-password" style="color: #2002ff">Forgot Password</a>
+		</div>
+
 
 	</div>
 

@@ -19,9 +19,19 @@ def render_homepage():
 
 ### LOGIN ROUTES ###
 
-@app.get("/login")
+@app.route("/login", methods=['GET'])
 def render_login():
   return render_template("login_page.html")
+
+@app.route("/login", methods=['POST'])
+def post_login():
+  # Get fields from the form
+  username = request.form['username']
+  password = request.form['password']
+  if username in login_info and login_info[username] == password:
+    return redirect("/marketplace-view")
+  else:
+    return "<h1>Invalid login</h1>"
 
 @app.route("/signup", methods=['GET'])
 def render_signup():
