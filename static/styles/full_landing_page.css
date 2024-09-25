@@ -50,7 +50,7 @@ nav {
 /* -----NAVIGATION BAR STYLING----- */
 
 .background-photo {
-    box-sizing: border-box;
+    display: block; /* Removes padding underneath image */
     width: 100%;
     
 }
