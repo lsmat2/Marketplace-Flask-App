@@ -1,15 +1,18 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_login import LoginManager
 import re
+from __init__ import init_app
 
-app = Flask(__name__)
-app.config.from_object('config.Config')
+# Create the Flask app and Configure from config.py
+# app = Flask(__name__)
+# app.config.from_object('config.Config')
+app = init_app()
 
+# Environment variables
 _posts = [{"certifications":"None","material":"None","minquan":"100","time":"None","title":"Wood","usage":"100"},
          {"certifications":"None","material":"None","minquan":"300","time":"None","title":"Screws","usage":"200"},
          {"certifications":"None","material":"None","minquan":"500","time":"None","title":"Steel","usage":"500"}]
 _login_info = {}
-
 _login_manager = None
 
 
