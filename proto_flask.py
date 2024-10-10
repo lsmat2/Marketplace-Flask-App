@@ -1,23 +1,30 @@
-from flask import Flask, render_template, request, redirect
-app = Flask(__name__)
+from flask import Flask, render_template, request, redirect, session
+from flask_login import LoginManager
+import re
 
-# Storage for marketplace posts
-# posts = []
-# Sample posts for testing
-posts = [{"certifications":"None","material":"None","minquan":"100","time":"None","title":"Wood","usage":"100"},
+app = Flask(__name__)
+app.config.from_object('config.Config')
+
+_posts = [{"certifications":"None","material":"None","minquan":"100","time":"None","title":"Wood","usage":"100"},
          {"certifications":"None","material":"None","minquan":"300","time":"None","title":"Screws","usage":"200"},
          {"certifications":"None","material":"None","minquan":"500","time":"None","title":"Steel","usage":"500"}]
+_login_info = {}
 
-login_info = {}
+_login_manager = None
 
 
-### LANDING PAGE ROUTE ###
+###########################
+### LANDING PAGE ROUTES ###
+###########################
+
 @app.route("/")
 def render_homepage():
   return render_template("full_landing_page.html")
 
 
+####################
 ### LOGIN ROUTES ###
+####################
 
 @app.route("/login", methods=['GET'])
 def render_login():
@@ -28,10 +35,15 @@ def post_login():
   # Get fields from the form
   username = request.form['username']
   password = request.form['password']
-  if username in login_info and login_info[username] == password:
+  if username in _login_info and _login_info[username] == password:
     return redirect("/marketplace-view")
   else:
     return "<h1>Invalid login</h1>"
+  
+
+####################
+### SIGNUP ROUTES ##
+####################
 
 @app.route("/signup", methods=['GET'])
 def render_signup():
@@ -42,23 +54,26 @@ def post_signup():
   # Get fields from the form
   username = request.form['username']
   password = request.form['password']
-  login_info[username] = password
+  # Validate email format
+  email_regex = r'^.+@.+\.com$'
+  if not re.match(email_regex, username):
+    return "<script>alert('Invalid email format'); window.location.href='/signup';</script>"
+  _login_info[username] = password
   return redirect("/login")
 
-@app.get("/login-info")
-def get_login_info():
-  return login_info
 
-@app.get("/posts")
-def render_forgot_pass():
-  return posts
-
-
-### MARKETPLACE ROUTES ###
+###############################
+### MARKETPLACE VIEW ROUTES ###
+###############################
 
 @app.route("/marketplace-view", methods=['GET'])
 def render_marketplace_view():
-  return render_template("marketplace-view.html", posts=posts)
+  return render_template("marketplace-view.html", posts=_posts)
+
+
+###############################
+### MARKETPLACE POST ROUTES ###
+###############################
 
 @app.route('/marketplace-post', methods=['GET'])
 def render_marketplace_post():
@@ -83,10 +98,15 @@ def post_to_marketplace():
             'certifications': certifications,
             'time': time
         }
-        posts.append(post)
+        _posts.append(post)
     return render_template("marketplace-post.html")
 
 
+###################
 ### RUN THE APP ###
+###################
+
 if __name__ == '__main__':
+  # _login_manager = LoginManager()
+  # _login_manager.init_app(app)
   app.run()
