@@ -15,7 +15,7 @@ This is a simple marketplace application built using Flask, a lightweight WSGI w
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/Marketplace-Flask-App.git
+    git clone https://github.com/lsmat2/Marketplace-Flask-App.git
     cd Marketplace-Flask-App
     ```
 
